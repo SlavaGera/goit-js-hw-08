@@ -38,8 +38,8 @@ function populateTextForm() {
 
         return;
     }
-        refs.email.value = saveMsg.email ?? '';
-        refs.textarea.value = saveMsg.message ?? '';
+        refs.email.value = saveMsg.email || '';
+        refs.textarea.value = saveMsg.message || '';
   
     // refs.email.value = outputTxt?.email ?? '';
     // refs.textarea.value = outputTxt?.message ?? '';
