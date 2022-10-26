@@ -30,21 +30,25 @@ function onFormSubmit(event) {
 };
 
 function populateTextForm() {
-    const saveMsg = localStorage.getItem(STORAGE_KEY);
-    const outputTxt = JSON.parse(saveMsg);
+    // const saveMsg = localStorage.getItem(STORAGE_KEY);
+    // const outputTxt = JSON.parse(saveMsg);
+    const saveMsg = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
     if (saveMsg === null) {
-        refs.email.value = outputTxt.email ?? '';
-        refs.textarea.value = outputTxt.message ?? '';
-   }
+
+        return;
+    }
+        refs.email.value = saveMsg.email ?? '';
+        refs.textarea.value = saveMsg.message ?? '';
+  
     // refs.email.value = outputTxt?.email ?? '';
     // refs.textarea.value = outputTxt?.message ?? '';
     
 
-    formData = {
-        email: outputTxt.email,
-        message: outputTxt.message
-        // email: outputTxt?.email,
-        // message: outputTxt?.message
-    }
+//     formData = {
+//         email: outputTxt.email,
+//         message: outputTxt.message
+//         // email: outputTxt?.email,
+//         // message: outputTxt?.message
+//     }
 };
