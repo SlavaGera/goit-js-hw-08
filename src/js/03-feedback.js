@@ -39,7 +39,7 @@ function populateTextForm(event) {
     
 
     formData = {
-        email: outputTxt.email,
-        message: outputTxt.message
+        email: outputTxt?.email,
+        message: outputTxt?.message
     }
 };
