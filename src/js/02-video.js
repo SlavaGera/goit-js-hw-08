@@ -1,5 +1,6 @@
-import throttle from 'lodash.throttle'
 import Player from '@vimeo/player';
+import throttle from 'lodash.throttle'
+
 
 const STORAGE_KEY = "videoplayer-current-time"
 
@@ -25,10 +26,10 @@ player.on('timeupdate', throttle(onPlay, 1000));
     });
 
 const getLocalStorage = JSON.parse(localStorage.getItem(STORAGE_KEY));
-console.log(getLocalStorage)
+console.log(getLocalStorage);
 
-player.setCurrentTime(getLocalStorage.seconds).then(function (seconds) {
-}).catch(function(error) {
+player.setCurrentTime(getLocalStorage?.seconds).then(function (seconds) {
+}).catch(function (error) {
     switch (error.name) {
         case 'RangeError':
             // the time was less than 0 or greater than the video’s duration

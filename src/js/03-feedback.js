@@ -24,16 +24,19 @@ function onFormSubmit(event) {
     event.preventDefault();
     localStorage.removeItem(STORAGE_KEY);
     event.currentTarget.reset();
+
+    console.log(`Email: ${formData.email}`);
+    console.log(`Message: ${formData.message}`);
 };
 
 function populateTextForm(event) {
     const saveMsg = localStorage.getItem(STORAGE_KEY);
     const outputTxt = JSON.parse(saveMsg);
 
-    if (saveMsg) {
-        refs.email.value = outputTxt.email;
-        refs.textarea.value = outputTxt.message;
-    }
+   
+    refs.email.value = outputTxt.email ?? '';
+    refs.textarea.value = outputTxt.message ?? '';
+    
 
     formData = {
         email: outputTxt.email,
