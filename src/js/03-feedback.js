@@ -29,17 +29,22 @@ function onFormSubmit(event) {
     console.log(`Message: ${formData.message}`);
 };
 
-function populateTextForm(event) {
+function populateTextForm() {
     const saveMsg = localStorage.getItem(STORAGE_KEY);
     const outputTxt = JSON.parse(saveMsg);
 
-   
-    refs.email.value = outputTxt?.email ?? '';
-    refs.textarea.value = outputTxt?.message ?? '';
+    if (saveMsg === null) {
+        refs.email.value = outputTxt.email;
+        refs.textarea.value = outputTxt?.message;
+   }
+    // refs.email.value = outputTxt?.email ?? '';
+    // refs.textarea.value = outputTxt?.message ?? '';
     
 
     formData = {
-        email: outputTxt?.email,
-        message: outputTxt?.message
+        email: outputTxt.email,
+        message: outputTxt.message
+        // email: outputTxt?.email,
+        // message: outputTxt?.message
     }
 };
