@@ -34,8 +34,8 @@ function populateTextForm(event) {
     const outputTxt = JSON.parse(saveMsg);
 
    
-    refs.email.value = outputTxt.email ?? '';
-    refs.textarea.value = outputTxt.message ?? '';
+    refs.email.value = outputTxt?.email ?? '';
+    refs.textarea.value = outputTxt?.message ?? '';
     
 
     formData = {
